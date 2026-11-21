@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:tshirt_app/core/parallel_imports.dart';
+
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
 
@@ -6,13 +7,18 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text(""),
-            CircleAvatar()
-          ],
+        Text("hey".tr(), style: AppTextStyles.black32w600),
+        HeightSpace(20),
+        IconButton(
+          onPressed: () {
+            if (context.locale.languageCode == "en") {
+              context.setLocale(Locale("ar"));
+            } else {
+              context.setLocale(Locale("en"));
+            }
+          },
+          icon: Icon(Icons.g_translate, color: AppColors.greenColor),
         ),
-        Text("")
       ],
     );
   }
